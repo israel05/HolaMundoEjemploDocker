@@ -33,8 +33,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/israel05/HolaMundoEjemploDocker
 
-WORKDIR /transporteBeta1
+WORKDIR /HolaMundoEjemploDocker
 
 RUN mvn package   
 
-CMD  java -jar /transporteBeta1/target/transportes-1.beta.jar
+CMD  java -jar /HolaMundoEjemploDocker/target/HolaMundoFX-1.0.jar
