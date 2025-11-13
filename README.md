@@ -1,5 +1,8 @@
 # EJEMPLO DE LANZADOR DOCKERFILE JAVAFX
 
+## contenido del archivo dockerfile
+
+
 
 FROM ubuntu:20.04
 ENV TZ=Asia/Kolkata \
@@ -38,3 +41,14 @@ WORKDIR /HolaMundoEjemploDocker
 RUN mvn package   
 
 CMD  java -jar /HolaMundoEjemploDocker/target/HolaMundoFX-1.0.jar
+
+
+
+## CONSTRUCCIÓN Y LANZAMIENTO
+docker build -t mipruebajfx . --debug
+
+Ese comando debe construir la imagen sin errores
+
+docker run -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix mipruebajfx
+
+Ese comando buscará un servidor X en windows, por ejempo VcXsrv que es libre
