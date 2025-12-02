@@ -36,6 +36,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/israel05/HolaMundoEjemploDocker
 
+
+VOLUME /HolaMundoEjemploDocker
+
 WORKDIR /HolaMundoEjemploDocker
 
 RUN mvn package   
@@ -49,6 +52,10 @@ docker build -t mipruebajfx . --debug
 
 Ese comando debe construir la imagen sin errores
 
-docker run -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix mipruebajfx
+docker run --name pruebafx -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix mipruebajfx
+ y para arrancarlo sucesivas veces
+
+ docker start -a pruebafx 
+
 
 Ese comando buscará un servidor X en windows, por ejempo VcXsrv que es libre
